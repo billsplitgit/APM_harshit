@@ -20,7 +20,7 @@ import { ProductDetailGuard } from "./products/product-guard.service";
         </div>   
     </div> 
     `,
-    providers: [ProductService, ProductDetailGuard]
+    providers: [ProductService]
 })
 
 
