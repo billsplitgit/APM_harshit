@@ -1,6 +1,51 @@
-<div class='panel panel-primary'>
+<div class='panel panel-primary' *ngIf='product'>
     <div class='panel-heading'>
-        {{pageTitle}}
+        {{pageTitle + ', ' +  product.productName}}
+    </div>
+    <div class='row '>
+        <div class='col-md-6 data-container'>
+            <div class='row'>
+                <div class='col-md-4'>Product: 
+                </div>
+                <div class='col-md-8'>
+                    {{product.productName}}
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-md-4'>Code: 
+                </div>
+                <div class='col-md-8'>
+                    {{product.productCode}}
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-md-4'>Available: 
+                </div>
+                <div class='col-md-8'>
+                    {{product.releaseDate}}
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-md-4'>Price:
+                    
+                </div>
+                <div class='col-md-8'>
+                    {{product.price | currency: 'USD' : true: '1.2-2'}}
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-md-4'>5-star Rating:
+                </div>
+                <div class='col-md-8'>
+                    <ai-star [rating] = 'product.starRating'
+                        (ratingClicked) = 'onRatingClicked($event)'>
+                    </ai-star>
+                </div>
+            </div>
+        </div>
+        <div class='col-md-6'>
+           <img src = {{product.imageUrl}} />
+        </div>
     </div>
     <div class='panel-footer'>
         <a class='btn btn-default' (click)='onBack()' style='width:80px'>
